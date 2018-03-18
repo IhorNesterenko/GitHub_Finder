@@ -3,6 +3,23 @@ class UI {
     this.profileDiv = document.querySelector('#profile');
   }
 
+  displayAlert(){
+    var alert = document.createElement('div');
+    alert.className = "alert alert-danger";
+    alert.role="alert";
+    alert.innerText = "User not found";
+
+    document.querySelector('.mainCont').insertBefore(alert, document.querySelector('.mainCont').firstChild);
+
+    setTimeout(() => {
+      document.querySelector('.alert').remove();
+    },2000);
+  }
+
+  clearProfile(){
+    this.profileDiv.innerHTML = '';
+  }
+
   displayUser(user){
     var base = `<div class="card">
       <div class="card-body">

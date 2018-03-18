@@ -9,10 +9,13 @@ input.addEventListener('keyup', e => {
       .then(res => {
         if(res.user.message === "Not Found"){
           console.log('no user with such name');
+          ui.displayAlert();
         } else {
           console.log(res.user);
           ui.displayUser(res.user);
         }
       });
+  }else {
+    ui.clearProfile();
   }
 });
