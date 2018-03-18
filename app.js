@@ -1,4 +1,5 @@
 const githubAPI = new GitHubAPI();
+const ui = new UI();
 const input = document.querySelector('#input');
 
 input.addEventListener('keyup', e => {
@@ -9,7 +10,8 @@ input.addEventListener('keyup', e => {
         if(res.user.message === "Not Found"){
           console.log('no user with such name');
         } else {
-          console.log(res.repos);
+          console.log(res.user);
+          ui.displayUser(res.user);
         }
       });
   }
