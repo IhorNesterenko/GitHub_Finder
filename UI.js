@@ -4,16 +4,18 @@ class UI {
   }
 
   displayAlert(){
-    var alert = document.createElement('div');
-    alert.className = "alert alert-danger";
-    alert.role="alert";
-    alert.innerText = "User not found";
+    if(document.querySelector('.mainCont').firstChild.role !== "alert"){
+      var alert = document.createElement('div');
+      alert.className = "alert alert-danger";
+      alert.role="alert";
+      alert.innerText = "User not found";
 
-    document.querySelector('.mainCont').insertBefore(alert, document.querySelector('.mainCont').firstChild);
+      document.querySelector('.mainCont').insertBefore(alert, document.querySelector('.mainCont').firstChild);
 
-    setTimeout(() => {
-      document.querySelector('.alert').remove();
-    },2000);
+      setTimeout(() => {
+        document.querySelector('.alert').remove();
+      },2000);
+    }
   }
 
   clearProfile(){
