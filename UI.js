@@ -48,4 +48,21 @@ class UI {
 
     this.profileDiv.innerHTML = base;
   }
+
+  displayRepos(repos){
+     var ul = document.createElement("ul");
+     ul.className = "list-group mt-5";
+     [].forEach.call(repos, repo => {
+       var base = `<li class="list-group-item">
+        <div class="d-flex">
+          <a href="${repo.clone_url}" class="mr-auto p-2">${repo.name}</a>
+          <span class="badge badge-success p-2 ml-2">Stars: ${repo.stargazers_count}</span>
+          <span class="badge badge-danger p-2 ml-2">Watchers: ${repo.watchers}</span>
+          <span class="badge badge-warning p-2 ml-2">Forks: ${repo.forks}</span>
+        </div>
+       </li>`
+       ul.innerHTML += base;
+     });
+     this.profileDiv.appendChild(ul);
+  }
 }

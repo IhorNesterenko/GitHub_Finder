@@ -13,6 +13,7 @@ input.addEventListener('keyup', e => {
         } else {
           console.log(res.user);
           ui.displayUser(res.user);
+          ui.displayRepos(res.repos);
         }
       });
   }else {
